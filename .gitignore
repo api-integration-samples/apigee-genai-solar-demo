@@ -1,0 +1,4 @@
+1_env.dev.sh
+*.dev.sh
+node_modules
+*.local.*

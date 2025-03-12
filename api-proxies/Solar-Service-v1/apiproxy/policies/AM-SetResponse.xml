@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-SetResponse">
+  <DisplayName>AM-SetResponse</DisplayName>
+  <Properties/>
+  <Set>
+    <Payload contentType="application/json">
+      {
+        "address": "{apigee.address}",
+        "latitude": "{apigee.latitude}",
+        "longitude": "{apigee.longitude}",
+        "maxSunshineHoursPerYear": "{apigee.maxSunshineHoursPerYear}",
+        "maxArrayAreaMeters2": "{apigee.maxArrayAreaMeters2}",
+        "maxArrayPanelsCount": "{apigee.maxArrayPanelsCount}",
+        "carbonOffsetFactorKgPerMwh": "{apigee.carbonOffsetFactorKgPerMwh}",
+        "averageKwh": "{apigee.averageKwh}",
+        "averagePanelsCount": "{apigee.averagePanelsCount}",
+        "averageMarketValuePerYear": "{apigee.averageMarketValuePerYear}",
+        "averageCostToInstallPanels": "{apigee.averageCostToInstallPanels}",
+        "averageBreakEvenPointInYears": "{apigee.averageBreakEvenPointInYears}"
+      }
+    </Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

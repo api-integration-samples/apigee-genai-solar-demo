@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables continueOnError="false" enabled="true" name="EV-GetSolarResults">
+  <DisplayName>EV-GetSolarResults</DisplayName>
+  <Properties/>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <JSONPayload>
+    <Variable name="maxSunshineHoursPerYear">
+      <JSONPath>$.solarPotential.maxSunshineHoursPerYear</JSONPath>
+    </Variable>
+    <Variable name="maxArrayAreaMeters2">
+      <JSONPath>$.solarPotential.maxArrayAreaMeters2</JSONPath>
+    </Variable>
+    <Variable name="maxArrayPanelsCount">
+      <JSONPath>$.solarPotential.maxArrayPanelsCount</JSONPath>
+    </Variable>
+    <Variable name="carbonOffsetFactorKgPerMwh">
+      <JSONPath>$.solarPotential.carbonOffsetFactorKgPerMwh</JSONPath>
+    </Variable>
+  </JSONPayload>
+  <VariablePrefix>apigee</VariablePrefix>
+  <Source clearPayload="false">response</Source>
+</ExtractVariables>

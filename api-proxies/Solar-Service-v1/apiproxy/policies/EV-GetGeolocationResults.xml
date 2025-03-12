@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables continueOnError="false" enabled="true" name="EV-GetGeolocationResults">
+  <DisplayName>EV-GetGeolocationResults</DisplayName>
+  <Properties/>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <JSONPayload>
+    <Variable name="latitude">
+      <JSONPath>$.results[0].geometry.viewport.southwest.lat</JSONPath>
+    </Variable>
+    <Variable name="longitude">
+      <JSONPath>$.results[0].geometry.viewport.southwest.lng</JSONPath>
+    </Variable>
+  </JSONPayload>
+  <Source clearPayload="false">geoResponse</Source>
+  <VariablePrefix>apigee</VariablePrefix>
+</ExtractVariables>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <Description/>
+  <FaultRules/>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>VA-VerifyKey</Name>
+      </Step>
+      <Step>
+        <Name>AM-RemoveKey</Name>
+      </Step>
+      <Step>
+        <Name>EV-GetInputs</Name>
+      </Step>
+      <Step>
+        <Condition>(apigee.latitude == null OR apigee.longitude == null) AND (apigee.address == null) AND (apigee.question == null)</Condition>
+        <Name>RF-ValidateInputs</Name>
+      </Step>
+      <Step>
+        <Name>KVM-GetMapsKey</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response>
+    </Response>
+  </PostFlow>
+  <Flows>
+    <Flow name="GetGeoLocation">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>SC-GetGeolocation</Name>
+        </Step>
+        <Step>
+          <Name>EV-GetGeolocationResults</Name>
+        </Step>
+      </Request>
+      <Response/>
+      <Condition>request.verb = "POST" AND apigee.address != null</Condition>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/v1/solar-service</BasePath>
+    <Properties/>
+    <VirtualHost>default</VirtualHost>
+  </HTTPProxyConnection>
+  <RouteRule name="questions">
+    <Condition>proxy.pathsuffix MatchesPath "/questions"</Condition>
+    <TargetEndpoint>GeminiAPI</TargetEndpoint>
+  </RouteRule>
+  <RouteRule name="default">
+    <TargetEndpoint>GoogleSolarAPI</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

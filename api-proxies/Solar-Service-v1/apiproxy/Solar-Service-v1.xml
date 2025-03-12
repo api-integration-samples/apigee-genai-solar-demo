@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="37" name="Solar-Service-v1">
+  <DisplayName/>
+  <Description>This API provides solar calculations services for any address or lat/long input.</Description>
+  <CreatedAt>1711031025554</CreatedAt>
+  <LastModifiedAt>1711031025554</LastModifiedAt>
+  <BasePaths>/v1/solar-service</BasePaths>
+  <Policies>
+    <Policy>VA-VerifyKey</Policy>
+    <Policy>AM-RemoveKey</Policy>
+    <Policy>EV-GetInputs</Policy>
+    <Policy>SC-GetGeolocation</Policy>
+    <Policy>RF-ValidateInputs</Policy>
+    <Policy>KVM-GetMapsKey</Policy>
+    <Policy>EV-GetGeolocationResults</Policy>
+    <Policy>AM-SetTargetData</Policy>
+    <Policy>AM-SetResponse</Policy>
+    <Policy>EV-GetSolarResults</Policy>
+    <Policy>JS-CalculateSolarData</Policy>
+    <Policy>AM-SetGeminiData</Policy>
+    <Policy>JS-SetGeminiResponse</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://solar-calculator.js</Resource>
+    <Resource>jsc://gemini-functions.js</Resource>
+  </Resources>
+  <TargetEndpoints>
+    <TargetEndpoint>GeminiAPI</TargetEndpoint>
+    <TargetEndpoint>GoogleSolarAPI</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

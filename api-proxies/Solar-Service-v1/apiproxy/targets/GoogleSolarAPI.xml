@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="GoogleSolarAPI">
+  <Description/>
+  <FaultRules/>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>AM-SetTargetData</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response>
+      <Step>
+        <Name>EV-GetSolarResults</Name>
+      </Step>
+      <Step>
+        <Name>JS-CalculateSolarData</Name>
+      </Step>
+      <Step>
+        <Name>AM-SetResponse</Name>
+      </Step>
+    </Response>
+  </PostFlow>
+  <Flows/>
+  <HTTPTargetConnection>
+    <Properties/>
+    <URL>https://solar.googleapis.com/v1/buildingInsights:findClosest</URL>
+  </HTTPTargetConnection>
+</TargetEndpoint>

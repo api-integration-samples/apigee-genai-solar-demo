@@ -1,0 +1,15 @@
+{
+  "name": "vertex-chat",
+  "version": "0.1.0",
+  "description": "A chat server/client for Google Cloud Vertex AI chat models.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/vertexai": "github:googleapis/nodejs-vertexai",
+    "express": "^4.18.2"
+  }
+}

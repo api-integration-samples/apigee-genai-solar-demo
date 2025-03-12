@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="SC-GetGeolocation">
+  <DisplayName>SC-GetGeolocation</DisplayName>
+  <Properties/>
+  <Request clearPayload="true" variable="geoRequest">
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Set>
+      <Verb>GET</Verb>
+      <QueryParams>
+        <QueryParam name="address">{apigee.address}</QueryParam>
+        <QueryParam name="key">{gmaps_key}</QueryParam>
+      </QueryParams>
+    </Set>
+  </Request>
+  <Response>geoResponse</Response>
+  <HTTPTargetConnection>
+    <Properties/>
+    <URL>https://maps.googleapis.com/maps/api/geocode/json</URL>
+  </HTTPTargetConnection>
+</ServiceCallout>
